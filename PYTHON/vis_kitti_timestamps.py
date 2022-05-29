@@ -24,38 +24,41 @@ with open(args.path, "r") as f:
         print(str_time)
         time_list.append(str_time)
 
-time_all = []
+# time_all = []
 
-for str_time in time_list:
-    str_time = str_time.split(' ')
-    str_time = str_time[-1]
-    str_time = str_time.split('.')
-    str_time_ms = str_time[-1]
-    str_time = str_time[0].split(':')
-    str_time_h = str_time[0]
-    str_time_min = str_time[1]
-    str_time_s = str_time[2]
-    tmp_list = []
-    tmp_list.append(str_time_h)
-    tmp_list.append(str_time_min)
-    tmp_list.append(str_time_s)
-    tmp_list.append(str_time_ms)
-    time_all.append(tmp_list)
-    print (tmp_list)
+# for str_time in time_list:
+#     str_time = str_time.split(' ')
+#     str_time = str_time[-1]
+#     str_time = str_time.split('.')
+#     str_time_ms = str_time[-1]
+#     str_time = str_time[0].split(':')
+#     str_time_h = str_time[0]
+#     str_time_min = str_time[1]
+#     str_time_s = str_time[2]
+#     tmp_list = []
+#     tmp_list.append(str_time_h)
+#     tmp_list.append(str_time_min)
+#     tmp_list.append(str_time_s)
+#     tmp_list.append(str_time_ms)
+#     time_all.append(tmp_list)
+#     print (tmp_list)
 
 time_s = []
 
-for time_iter in time_all:
-    tmp_time = 0
-    # tmp_time += float(time_iter[0] * 3600)
-    tmp_time += float(time_iter[1]) * 60
-    tmp_time += float(time_iter[2])
+# for time_iter in time_all:
+#     tmp_time = 0
+#     # tmp_time += float(time_iter[0] * 3600)
+#     tmp_time += float(time_iter[1]) * 60
+#     tmp_time += float(time_iter[2])
 
-    a = '0.'
-    a += time_iter[3]
-    tmp_time += float(a)
+#     a = '0.'
+#     a += time_iter[3]
+#     tmp_time += float(a)
     
-    time_s.append(tmp_time)
+#     time_s.append(tmp_time)
+
+for i in range (0, len(time_list)):
+    time_s.append(float(time_list[i]))
 
 for i in range(1, len(time_s)):
     if time_s[i] < time_s[i-1]:

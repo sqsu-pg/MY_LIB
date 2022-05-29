@@ -7,7 +7,7 @@ message("CMAKE_PERFIX_PATH" ${CMAKE_PREFIX_PATH})
 
 #经过实验，Config先查找_DIR路径，再查找CMAKE_PREFIX_PATH路径
 #找ros中的opencv
-set(OpenCV_DIR "/opt/ros/kinetic/share/OpenCV-3.3.1-dev")#这个去掉之后，找到的就是自己安装的Opencv3.4.7
+# set(OpenCV_DIR "/opt/ros/kinetic/share/OpenCV-3.3.1-dev")#这个去掉之后，找到的就是自己安装的Opencv3.4.7
 find_package(OpenCV  REQUIRED)
 
 message(STATUS "CMAKE_MOUDLE_PATH = ${CMAKE_MOUDLE_PATH}")
@@ -24,24 +24,6 @@ message("opencv include dirs is " ${OpenCV_INCLUDE_DIRS})
 
 #add_executable(huidu huidu.cpp)
 #target_link_libraries(huidu ${OpenCV_LIBS})
-
-add_executable(Mat ./src/Mat.cpp)
-target_link_libraries(Mat ${OpenCV_LIBS})
-
-add_executable(kong_Mat ./src/kong_mat.cpp)
-target_link_libraries(kong_Mat ${OpenCV_LIBS})
-
-add_executable(mat_push_back ./src/mat_push_back.cpp)
-target_link_libraries(mat_push_back ${OpenCV_LIBS})
-
-add_executable(SGBM ./src/SGBM.cpp)
-target_link_libraries(SGBM ${OpenCV_LIBS})
-
-add_executable(optional_flow ./src/optional_flow.cpp)
-target_link_libraries(optional_flow ${OpenCV_LIBS})
-
-add_executable(cv_waitkey ./src/cv_waitkey.cpp)
-target_link_libraries(cv_waitkey ${OpenCV_LIBS})
 
 add_executable(cv_FileStorage ./src/cv_FileStorage.cpp)
 target_link_libraries(cv_FileStorage ${OpenCV_LIBS})

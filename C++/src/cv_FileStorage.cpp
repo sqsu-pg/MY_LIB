@@ -20,12 +20,16 @@ void write_yaml_opencv_mat();
 void read_yaml_opencv_mat();
 
 void read_txt_to_yaml(const string& txt_path);
+void write_yaml(const string& yaml_path);
 
 int main() {
 
     // read_yaml_opencv_mat();
 
     read_txt_to_yaml("/home/george/MY_LIB/PYTHON/calib_imu_to_cam.txt");
+
+    // string mat_yaml_path = "/home/nuc02/MY_LIB/C++/mat.yaml";
+    // write_yaml(mat_yaml_path);
     
     return 0;
 }
@@ -119,4 +123,30 @@ void read_txt_to_yaml(const string& txt_path)
     fs.release();
 
 
+}
+
+void write_yaml(const string& yaml_path)
+{
+    cv::Mat Tcb(4, 4, CV_32F);
+    Tcb.at<float>(0, 0) = 1.0;
+    Tcb.at<float>(0, 1) = 0.0;
+    Tcb.at<float>(0, 2) = 0.0;
+    Tcb.at<float>(0, 3) = 0.00552000012248755;
+    Tcb.at<float>(1, 0) = 0.0;
+    Tcb.at<float>(1, 1) = 1.0;
+    Tcb.at<float>(1, 2) = 0.0;
+    Tcb.at<float>(1, 3) = -0.00510000018402934;
+    Tcb.at<float>(2, 0) = 0.0;
+    Tcb.at<float>(2, 1) = 0.0;
+    Tcb.at<float>(2, 2) = 1.0;
+    Tcb.at<float>(2, 3) = -0.011739999987185;
+    Tcb.at<float>(3, 0) = 0.0;
+    Tcb.at<float>(3, 1) = 0.0;
+    Tcb.at<float>(3, 2) = 0.0;
+    Tcb.at<float>(3, 3) = 1.0;
+
+    cv::FileStorage fs(yaml_path, FileStorage::WRITE);
+    fs << "Tbc" << Tcb;
+    fs.release();
+    
 }

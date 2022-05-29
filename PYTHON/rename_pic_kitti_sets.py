@@ -30,7 +30,7 @@ print (vec_image_path)
 for i in range(len(vec_image_path)):
     new_name = str(i)
     new_name = new_name.zfill(6)
-    new_name = new_name + '.png'
+    new_name = new_name + '.flo'
     print (new_name)
     new_name = args.path + '/' + new_name
 
