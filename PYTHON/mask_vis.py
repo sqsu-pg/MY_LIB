@@ -67,7 +67,7 @@ for image_path, mask_path in zip(vec_image_path, vec_mask_path):
     
     image_both_show = np.concatenate([image, image_show], axis=0)
     cv.imshow("mask vis", image_both_show)
-    cv.waitKey()
+    cv.waitKey(30)
 
 
 
