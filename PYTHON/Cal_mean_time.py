@@ -14,7 +14,7 @@ with open(args.path, 'r') as f:
         str_vec = str_all.split(',')
         time_str_vec = str_vec[1].split(':')
         time_str = time_str_vec[1]
-        # print (time_str)
+        print (time_str)
         time_vec.append(float(time_str))
 
 sum_time = 0
